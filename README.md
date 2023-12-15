@@ -5,6 +5,8 @@ by [Mykola Lavreniuk](https://scholar.google.com/citations?hl=en&user=-oFR-RYAAA
 
 This repository contains PyTorch implementation for paper "EVP: Enhanced Visual Perception using Inverse Multi-Attentive Feature Refinement and Regularized Image-Text Alignment". 
 
+*Currently it contains only inference code and trained models. The training code for reproduction will be added soon.*
+
 EVP (<ins>**E**</ins>nhanced <ins>**V**</ins>isual <ins>**P**</ins>erception) builds on the previous work VPD which paved the way to use the Stable Diffusion network for computer vision tasks.
 
 ![intro](figs/intro.png)
