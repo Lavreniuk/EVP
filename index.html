@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVP: Enhanced Visual Perception</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center; /* Center align the content */
+        }
+        h1 {
+            color: #333;
+			font-size: 30px;
+			max-width: 900px;
+            margin: auto;
+			margin-bottom: 1em;
+			font-weight: normal;
+        }
+        p {
+            color: #555;
+            max-width: 900px;
+            font-size: 18px;
+            margin: auto;
+            text-align: justify;
+            margin-bottom: 1em;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+		.caption {
+            font-size: 14px;
+            margin-top: 10px;
+			max-width: 900px;
+			margin: auto;
+			text-align: justify;
+			color: #555;
+        }
+        .numeric-list {
+			color: #555;
+            list-style-type: decimal;
+            max-width: 900px;
+            font-size: 18px;
+            margin: auto;
+            text-align: justify;
+            margin-bottom: 1em;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1><strong>EVP:</strong> Enhanced Visual Perception using Inverse Multi-Attentive Feature Refinement and Regularized Image-Text Alignment</h1>
+	<p style="text-align:center; margin-bottom: 10px;">
+		<span><a href="https://scholar.google.com/citations?hl=en&user=-oFR-RYAAAAJ">Mykola Lavreniuk</a><sup>1</sup>, </span>
+		<span><a href="https://shariqfarooq123.github.io">Shariq Farooq Bhat</a><sup>2</sup>, </span>
+		<span><a href="https://matthias.pw">Matthias Müller</a><sup>3</sup>, </span>
+		<span><a href="https://peterwonka.net">Peter Wonka</a><sup>2</sup> </span>
+    </p>
+
+	<div style="text-align:center; margin-bottom: 20px; color: #555;">
+		<span><sup>1</sup>SRI NASU-SSAU</span>, 
+		<span><sup>2</sup>KAUST</span>, 
+		<span><sup>3</sup>Intel Labs</span>
+	</div>
+	<div style="text-align:center; margin-bottom: 60px;">
+		<a href="https://arxiv.org/abs/2312.08548" style="text-decoration: none;">
+			<button style="background-color: #4CAF50; /* Green */
+							border: none;
+							color: white;
+							padding: 10px 20px;
+							text-align: center;
+							text-decoration: none;
+							display: inline-block;
+							font-size: 16px;
+							margin-right: 10px;
+							cursor: pointer;
+							border-radius: 5px;">
+				Paper (arXiv)
+			</button>
+		</a>
+		<a href="https://github.com/Lavreniuk/EVP" style="text-decoration: none;">
+			<button style="background-color: #008CBA; /* Blue */
+							border: none;
+							color: white;
+							padding: 10px 20px;
+							text-align: center;
+							text-decoration: none;
+							display: inline-block;
+							font-size: 16px;
+							cursor: pointer;
+							border-radius: 5px;">
+				Code (GitHub)
+			</button>
+		</a>
+	</div>
+	<img src="./images/my_new1.jpg" style="width: 900px; height: auto;" />
+	<div class="caption">Figure 1. Overview of the EVP model architecture. An input image is first encoded by an auto-encoder and a denoising U-Net (light green) taken from a pre-trained Stable Diffusion model. Our proposed Inverse Multi-Attentive Feature Refinement (IMAFR) module (light red) refines features from the denoising U-Net at different scales. Our novel text aggregation strategy (yellow), combines information from class names or BLIP-2-generated captions to create a unified, enriched description for improved model performance.</div>
+	<div id="method"> 
+		<h2>Abstract</h2>
+		<p>This work presents the network architecture EVP (Enhanced Visual Perception). EVP builds on the previous work VPD which paved the way to use the Stable Diffusion network for computer vision tasks. We propose two major enhancements. First, we develop the Inverse Multi-Attentive Feature Refinement (IMAFR) module which enhances feature learning capabilities by aggregating spatial information from higher pyramid levels. Second, we propose a novel image-text alignment module for improved feature extraction of the Stable Diffusion backbone. The resulting architecture is suitable for a wide variety of tasks and we demonstrate its performance in the context of single-image depth estimation with a specialized decoder using classification-based bins and referring segmentation with an off-the-shelf decoder. Comprehensive experiments conducted on established datasets show that EVP achieves state-of-the-art results in single-image depth estimation for indoor (NYU Depth v2, <strong>11.8%</strong> RMSE improvement over VPD) and outdoor (KITTI) environments, as well as referring segmentation (RefCOCO, <strong>2.53</strong> IoU improvement over ReLA).</p>
+	</div>
+	<div id="method"> 
+		<h2>Model</h2>
+		<img src="./images/my_new3_v2.jpg" style="width: 900px; height: auto;" />
+		<div class="caption">Figure 2. Detailed illustration of the EVP model architecture. Each component, including the Inverse Multi-Attentive Feature Refinement (IMAFR) module (light pink) and the novel text aggregation strategy (warm yellow), provides a comprehensive view of the model's internal structure and information flow. The IMAFR module adeptly refines features at various scales, leveraging critical spatial information from higher pyramid levels. The novel text aggregation strategy combines information from class names or BLIP-2-generated captions (light gray), creating a unified, enriched description to enhance overall model performance.</div>
+		
+		<p style="margin-top: 50px;"><strong>Our contributions are threefold:</strong></p>
+		<ol class="numeric-list">
+			<li>We propose the novel Inverse Multi-Attentive Feature Refinement module for effective feature aggregation across layers, a regularized free-form image-text alignment module, and a classification-based decoder for depth estimation.</li>
+			<li>We integrate these modules with a Stable Diffusion backbone to form the novel network architecture EVP.</li>
+			<li>We conduct extensive experiments on depth estimation and referring segmentation outperforming current state-of-the-art methods.</li>
+		</ol>
+		<img src="./images/my_new2v2.jpg" style="width: 300px; height: auto;" />
+		<div class="caption">Figure 3. Inverse Multi-Attentive Feature Refinement (IMAFR) (light pink) adeptly refines features at different scales received from the denoising U-Net (light green) using multi-attention.</div>
+	</div>
+	<div id="method"> 
+		<h2>Results</h2>
+		<p style="margin-top: 10px;"><strong>Depth Estimation</strong></p>
+		<img src="./images/table1.jpg" style="width: 500px; height: auto;" />
+		<div class="caption">Table 1. Performance comparison on the NYU Depth v2 dataset. The provided values are sourced from the respective original papers. The best results are highlighted in bold.</div>
+		<img src="./images/table2.jpg" style="width: 900px; height: auto; margin-top: 30px;" />
+		<div class="caption">Table 2. Performance comparison on the KITTI dataset for single frame methods. The provided values are sourced from the respective original papers. The best results are highlighted in bold, second best are underlined.</div>
+
+		<p style="margin-top: 50px;"><strong>Referring Image Segmentation</strong></p>
+		<img src="./images/table3.jpg" style="width: 500px; height: auto;" />
+		<div class="caption">Table 3. Performance comparison on the RefCOCO dataset. The provided values are sourced from the respective original papers. The best results are highlighted in bold.</div>
+
+	</div>
+	<div id="method"> 
+		<h2>Visualizations</h2>
+		<p style="margin-top: 10px;"><strong>Depth Estimation</strong></p>
+		<img src="./images/my_new4a_v2.jpg" style="width: 900px; height: auto;" />
+		<div class="caption">Figure 4. Visualization of EVP on images from the NYU Depth v2 dataset.</div>
+		<img src="./images/my_new4b_v2.jpg" style="width: 900px; height: auto; margin-top: 50px;" />
+		<div class="caption">Figure 5. Visualization of EVP on images from the KITTI dataset.</div>
+		<p style="margin-top: 50px;"><strong>Referring Image Segmentation</strong></p>
+		<img src="./images/my_new4c.jpg" style="width: 900px; height: auto;" />
+		<div class="caption">Figure 6. Visualization of EVP on images from the RefCOCO dataset.</div>
+
+	</div>
+	<div id="method"> 
+		<h2>More Results</h2>
+		<p style="margin-top: 10px;"><strong>Depth Estimation</strong></p>
+		<img src="./images/supplementary_3.jpg" style="width: 900px; height: auto;" />
+		<div class="caption">Figure 7. Visualization of EVP on images from the NYU Depth v2 dataset.</div>
+		<img src="./images/supplementary_1.jpg" style="width: 900px; height: auto; margin-top: 50px;" />
+		<div class="caption">Figure 8. Visualization of EVP on images from the KITTI dataset.</div>
+		<p style="margin-top: 50px;"><strong>Referring Image Segmentation</strong></p>
+		<img src="./images/supplementary_2.jpg" style="width: 900px; height: auto;" />
+		<div class="caption">Figure 9. Visualization of EVP on images from the RefCOCO dataset.</div>
+
+
+	</div>
+	
+</body>
+</html>
