@@ -1,0 +1,27 @@
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch==1.13.1
+torchvision==0.14.1
+salesforce-lavis
+bitsandbytes==0.37.0
+transformers==4.35.2 
+diffusers 
+invisible-watermark
+accelerate
+albumentations==0.4.3
+opencv-python==4.8.0.76
+pudb==2019.2
+imageio==2.9.0
+imageio-ffmpeg==0.4.2
+pytorch-lightning==1.4.2
+omegaconf==2.1.1
+test-tube>=0.7.5
+streamlit>=0.73.1
+einops==0.7.0
+torch-fidelity==0.3.0
+torchmetrics==0.6.0
+kornia==0.6
+streamlit-drawable-canvas==0.8
+mmcv-full==1.7.1
+tensorboardX==2.6.2.2
+-e git+https://github.com/openai/CLIP.git@main#egg=clip
+-e git+https://github.com/CompVis/taming-transformers.git#egg=taming-transformers

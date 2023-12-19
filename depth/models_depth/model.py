@@ -20,6 +20,7 @@ from .miniViT import mViT
 from .attractor import AttractorLayer, AttractorLayerUnnormed
 from .dist_layers import ConditionalLogBinomial
 from .localbins_layers import (Projector, SeedBinRegressor, SeedBinRegressorUnnormed)
+import os
 
 
 def icnr(x, scale=2, init=nn.init.kaiming_normal_):
@@ -284,7 +285,10 @@ class EVPDepthEncoder(nn.Module):
 
         config = OmegaConf.load('./v1-inference.yaml')
         if sd_path is None:
-            config.model.params.ckpt_path = '../checkpoints/v1-5-pruned-emaonly.ckpt'
+            if os.path.exists('../checkpoints/v1-5-pruned-emaonly.ckpt'):
+                config.model.params.ckpt_path = '../checkpoints/v1-5-pruned-emaonly.ckpt'
+            else:
+                config.model.params.ckpt_path = None
         else:
             config.model.params.ckpt_path = f'../{sd_path}'
 
@@ -306,9 +310,10 @@ class EVPDepthEncoder(nn.Module):
         
         self.text_adapter = TextAdapterRefer(text_dim=text_dim)
         self.gamma = nn.Parameter(torch.ones(text_dim) * 1e-4)
-        
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
         if caption_aggregation:                
-            class_embeddings = torch.load(f'{dataset}_class_embeddings_my_captions.pth')
+            class_embeddings = torch.load(f'{dataset}_class_embeddings_my_captions.pth', map_location=device)
             #class_embeddings_list = [value['class_embeddings'] for key, value in class_embeddings.items()]
             #stacked_embeddings = torch.stack(class_embeddings_list, dim=0)
             #class_embeddings = torch.mean(stacked_embeddings, dim=0).unsqueeze(0)
@@ -316,7 +321,7 @@ class EVPDepthEncoder(nn.Module):
             if 'aggregated' in class_embeddings:
                 class_embeddings = class_embeddings['aggregated'] 
             else:
-                clip_model = FrozenCLIPEmbedder(max_length=40,pool=False).cuda()
+                clip_model = FrozenCLIPEmbedder(max_length=40,pool=False).to(device)
                 class_embeddings_new = [clip_model.encode(value['caption'][0]) for key, value in class_embeddings.items()]
                 class_embeddings_new = torch.mean(torch.stack(class_embeddings_new, dim=0), dim=0)
                 class_embeddings['aggregated'] = class_embeddings_new
@@ -324,7 +329,7 @@ class EVPDepthEncoder(nn.Module):
                 class_embeddings = class_embeddings['aggregated']
             self.register_buffer('class_embeddings', class_embeddings)
         else:
-            self.class_embeddings = torch.load(f'{dataset}_class_embeddings_my_captions.pth')
+            self.class_embeddings = torch.load(f'{dataset}_class_embeddings_my_captions.pth', map_location=device)
 
             self.clip_model = FrozenCLIPEmbedder(max_length=40,pool=False)
             for param in self.clip_model.parameters():

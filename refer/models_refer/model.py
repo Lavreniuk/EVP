@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+import os
 import sys
 from ldm.util import instantiate_from_config
 from transformers.models.clip.modeling_clip import CLIPTextModel
@@ -258,7 +258,11 @@ class EVPRefer(nn.Module):
                  **args):
         super().__init__()
         config = OmegaConf.load('./v1-inference.yaml')
-        config.model.params.ckpt_path = f'{sd_path}'
+        if os.path.exists(f'{sd_path}'):
+            config.model.params.ckpt_path = f'{sd_path}'
+        else:
+            config.model.params.ckpt_path = None
+
         sd_model = instantiate_from_config(config.model)
         self.encoder_vq = sd_model.first_stage_model
         self.unet = UNetWrapper(sd_model.model, base_size=base_size)

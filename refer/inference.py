@@ -2,7 +2,6 @@ import os
 import cv2
 import numpy as np
 import torch
-import torch.backends.cudnn as cudnn
 from models_refer.model import EVPRefer
 from args import get_parser
 import glob
@@ -22,11 +21,8 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")
     model = EVPRefer(sd_path='../checkpoints/v1-5-pruned-emaonly.ckpt')
-    cudnn.benchmark = True
     model.to(device)
     model_weight = torch.load(args.resume)['model']
-    if 'module' in next(iter(model_weight.items()))[0]:
-        model_weight = OrderedDict((k[7:], v) for k, v in model_weight.items())
     model.load_state_dict(model_weight, strict=False)
     model.eval()
     
