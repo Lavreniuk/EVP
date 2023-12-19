@@ -1,5 +1,5 @@
 # EVP
-[Project Page](https://lavreniuk.github.io/EVP) | [arXiv](https://arxiv.org/abs/2312.08548)
+<a href='https://lavreniuk.github.io/EVP'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://arxiv.org/abs/2312.08548'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>  <a href='https://huggingface.co/spaces/MykolaL/evp'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'></a>
 
 by [Mykola Lavreniuk](https://scholar.google.com/citations?hl=en&user=-oFR-RYAAAAJ), [Shariq Farooq Bhat](https://shariqfarooq123.github.io/), [Matthias Müller](https://matthias.pw/), [Peter Wonka](https://peterwonka.net/)
 
