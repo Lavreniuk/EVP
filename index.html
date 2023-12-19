@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta name="google-site-verification" content="6lbYN1vX7A4sD8SrVniq84UEKyEUSBgxeP7d3FjuuK0" />
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./static/css/bulma.min.css">
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <title>EVP: Enhanced Visual Perception</title>
     <style>
         body {
@@ -79,8 +85,13 @@
 							font-size: 16px;
 							margin-right: 10px;
 							cursor: pointer;
-							border-radius: 5px;">
-				Paper (arXiv)
+							border-radius: 5px;
+							width: 130px;
+							height: 40px">
+				<span class="icon">
+					<i class="ai ai-arxiv"></i>
+				</span>
+				Paper
 			</button>
 		</a>
 		<a href="https://github.com/Lavreniuk/EVP" style="text-decoration: none;">
@@ -92,12 +103,38 @@
 							text-decoration: none;
 							display: inline-block;
 							font-size: 16px;
+							margin-right: 10px;
 							cursor: pointer;
-							border-radius: 5px;">
-				Code (GitHub)
+							border-radius: 5px;
+							width: 130px;
+							height: 40px">
+				<i class="fa fa-github" style="font-size:18px;"></i>
+				Code
+			</button>
+		</a>
+		<a href="https://huggingface.co/spaces/MykolaL/evp" style="text-decoration: none;">
+			<button style="background-color: #EFCC00; /* Yellow */
+							border: none;
+							color: white;
+							padding: 10px 20px;
+							text-align: center;
+							text-decoration: none;
+							display: inline-block;
+							font-size: 16px;
+							margin-right: 10px;
+							cursor: pointer;
+							border-radius: 5px;
+							width: 130px;
+							height: 40px">
+				<span class="icon">
+					🤗
+				</span>
+				Demo
 			</button>
 		</a>
 	</div>
+	
+	
 	<img src="./images/my_new1.jpg" style="width: 900px; height: auto;" />
 	<div class="caption">Figure 1. Overview of the EVP model architecture. An input image is first encoded by an auto-encoder and a denoising U-Net (light green) taken from a pre-trained Stable Diffusion model. Our proposed Inverse Multi-Attentive Feature Refinement (IMAFR) module (light red) refines features from the denoising U-Net at different scales. Our novel text aggregation strategy (yellow), combines information from class names or BLIP-2-generated captions to create a unified, enriched description for improved model performance.</div>
 	<div id="method"> 
