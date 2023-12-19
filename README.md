@@ -1,6 +1,12 @@
 # EVP
 <a href='https://lavreniuk.github.io/EVP'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://arxiv.org/abs/2312.08548'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>  <a href='https://huggingface.co/spaces/MykolaL/evp'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'></a>
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/evp-enhanced-visual-perception-using-inverse/monocular-depth-estimation-on-nyu-depth-v2)](https://paperswithcode.com/sota/monocular-depth-estimation-on-nyu-depth-v2?p=evp-enhanced-visual-perception-using-inverse) 
+<br>
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/evp-enhanced-visual-perception-using-inverse/monocular-depth-estimation-on-kitti-eigen)](https://paperswithcode.com/sota/monocular-depth-estimation-on-kitti-eigen?p=evp-enhanced-visual-perception-using-inverse)
+<br>
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/evp-enhanced-visual-perception-using-inverse/referring-expression-segmentation-on-refcoco-7)](https://paperswithcode.com/sota/referring-expression-segmentation-on-refcoco-7?p=evp-enhanced-visual-perception-using-inverse)
+
 by [Mykola Lavreniuk](https://scholar.google.com/citations?hl=en&user=-oFR-RYAAAAJ), [Shariq Farooq Bhat](https://shariqfarooq123.github.io/), [Matthias Müller](https://matthias.pw/), [Peter Wonka](https://peterwonka.net/)
 
 This repository contains PyTorch implementation for paper "EVP: Enhanced Visual Perception using Inverse Multi-Attentive Feature Refinement and Regularized Image-Text Alignment". 
