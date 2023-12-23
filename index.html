@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.rawgit.com/zurb/twentytwenty/599bc2df/js/jquery.event.move.js"></script>
+	<script src="https://cdn.rawgit.com/zurb/twentytwenty/599bc2df/js/jquery.twentytwenty.js"></script>
+	<link rel="stylesheet" href="https://cdn.rawgit.com/zurb/twentytwenty/599bc2df/css/twentytwenty.css" type="text/css" media="screen" />
+	
 	<meta name="google-site-verification" content="6lbYN1vX7A4sD8SrVniq84UEKyEUSBgxeP7d3FjuuK0" />
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="./static/css/bulma.min.css">
 	<link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <title>EVP: Enhanced Visual Perception</title>
@@ -56,10 +60,33 @@
             margin-bottom: 1em;
             padding-left: 20px;
         }
+		.slider-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+			margin-bottom: 60px;
+        }
+
+        .slider-table td {
+            padding: 5px;
+        }
+
+        .childContainer {
+            max-width: 440px;
+            max-height: 500px;
+            display: flex;
+			margin: auto;
+            justify-content: space-between;
+			
+        }
+
+        .childContainer img {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
-
     <h1><strong>EVP:</strong> Enhanced Visual Perception using Inverse Multi-Attentive Feature Refinement and Regularized Image-Text Alignment</h1>
 	<p style="text-align:center; margin-bottom: 10px;">
 		<span><a href="https://scholar.google.com/citations?hl=en&user=-oFR-RYAAAAJ">Mykola Lavreniuk</a><sup>1</sup>, </span>
@@ -73,7 +100,7 @@
 		<span><sup>2</sup>KAUST</span>, 
 		<span><sup>3</sup>Intel Labs</span>
 	</div>
-	<div style="text-align:center; margin-bottom: 60px;">
+	<div style="text-align:center; margin-bottom: 30px;">
 		<a href="https://arxiv.org/abs/2312.08548" style="text-decoration: none;">
 			<button style="background-color: #4CAF50; /* Green */
 							border: none;
@@ -134,7 +161,41 @@
 		</a>
 	</div>
 	
+	<table class="slider-table">
+		<tr>
+			<td>
+				<div id="container1" class="childContainer" style="margin-right:0">
+					<img src="./images/before_depth.jpg" alt="Before Depth" />
+					<img src="./images/after_depth.jpg" alt="After Depth" />
+				</div>
+			</td>
+			<td>
+				<div id="container2" class="childContainer" style="margin-left:0">
+					<img src="./images/before_depth.jpg" alt="Before Depth" />
+					<img src="./images/after_ref.jpg" alt="After Ref" />
+				</div>
+			</td>
+		</tr>
+	</table>
 	
+	<script>
+	$(function(){
+	  $("#container1").twentytwenty({
+		  before_label: 'Input',
+		  after_label: 'Depth map',
+		  default_offset_pct: 0.7,
+		});
+	});
+	$(function(){
+	  $("#container2").twentytwenty({
+		  before_label: 'Input',
+		  after_label: 'Left green plant mask',
+		  default_offset_pct: 0.3,
+		});
+	});
+	</script>
+
+
 	<img src="./images/my_new1.jpg" style="width: 900px; height: auto;" />
 	<div class="caption">Figure 1. Overview of the EVP model architecture. An input image is first encoded by an auto-encoder and a denoising U-Net (light green) taken from a pre-trained Stable Diffusion model. Our proposed Inverse Multi-Attentive Feature Refinement (IMAFR) module (light red) refines features from the denoising U-Net at different scales. Our novel text aggregation strategy (yellow), combines information from class names or BLIP-2-generated captions to create a unified, enriched description for improved model performance.</div>
 	<div id="method"> 
