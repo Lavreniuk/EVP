@@ -1,5 +1,6 @@
 # EVP
 <a href='https://lavreniuk.github.io/EVP'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://arxiv.org/abs/2312.08548'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>  <a href='https://huggingface.co/spaces/MykolaL/evp'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'></a>
+[![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1rd0_2AMyHlEaeYlWldZ-xGaGRYhP_TVb?usp=sharing)
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/evp-enhanced-visual-perception-using-inverse/monocular-depth-estimation-on-nyu-depth-v2)](https://paperswithcode.com/sota/monocular-depth-estimation-on-nyu-depth-v2?p=evp-enhanced-visual-perception-using-inverse) 
 <br>
