@@ -26,8 +26,8 @@ class nyudepthv2(BaseDataset):
         self.image_path_list = []
         self.depth_path_list = []
 
-        with open('nyu_class_list.json', 'r') as f:
-            self.class_list = json.load(f)
+        #with open('nyu_class_list.json', 'r') as f:
+        #    self.class_list = json.load(f)
 
         txt_path = os.path.join(filenames_path, 'nyudepthv2')
         if is_train:
@@ -49,7 +49,7 @@ class nyudepthv2(BaseDataset):
         img_path = self.data_path + self.filenames_list[idx].split(' ')[0]
         gt_path = self.data_path + self.filenames_list[idx].split(' ')[1]
         filename = img_path.split('/')[-2] + '_' + img_path.split('/')[-1]
-
+        """
         class_id = -1
         for i, name in enumerate(self.class_list):
             if name in filename:
@@ -57,7 +57,7 @@ class nyudepthv2(BaseDataset):
                 break
         
         assert class_id >= 0
-
+        """
         image = cv2.imread(img_path)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         depth = cv2.imread(gt_path, cv2.IMREAD_UNCHANGED).astype('float32')
@@ -73,4 +73,4 @@ class nyudepthv2(BaseDataset):
 
         depth = depth / 1000.0  # convert in meters
 
-        return {'img_path': img_path, 'image': image, 'depth': depth, 'filename': filename, 'class_id': class_id}
+        return {'img_path': img_path, 'image': image, 'depth': depth, 'filename': filename, 'class_id': 0} #class_id}
