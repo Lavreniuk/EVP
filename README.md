@@ -60,11 +60,10 @@ This code is based on [stable-diffusion](https://github.com/CompVis/stable-diffu
 ## Citation
 If you find our work useful in your research, please consider citing:
 ```
-@misc{lavreniuk2023evp,
-  url = {https://arxiv.org/abs/2312.08548},
-  author = {Lavreniuk, Mykola and Bhat, Shariq Farooq and Müller, Matthias and Wonka, Peter},
-  title = {EVP: Enhanced Visual Perception using Inverse Multi-Attentive Feature Refinement and Regularized Image-Text Alignment},
-  publisher = {arXiv},
-  year = {2023},
+@inproceedings{lavreniuk2024evp,
+  title={EVP: Enhanced Visual Perception using Inverse Multi-Attentive Feature Refinement and Regularized Image-Text Alignment},
+  author={Mykola Lavreniuk and Shariq Farooq Bhat and Matthias Muller and Peter Wonka},
+  booktitle={European Conference on Computer Vision Workshops (ECCVW)},
+  year={2024}
 }
 ```
