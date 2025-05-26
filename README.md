@@ -64,6 +64,7 @@ If you find our work useful in your research, please consider citing:
   title={EVP: Enhanced Visual Perception using Inverse Multi-Attentive Feature Refinement and Regularized Image-Text Alignment},
   author={Mykola Lavreniuk and Shariq Farooq Bhat and Matthias Muller and Peter Wonka},
   booktitle={European Conference on Computer Vision Workshops (ECCVW)},
+  pages={206--225},
   year={2024}
 }
 ```
